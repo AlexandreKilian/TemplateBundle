@@ -24,6 +24,6 @@
 		}
 	},
 	"autoload": {
-		"psr-0": { "Brix\\BrixTemplateBundle": "" }
+		"psr-0": { "Brix\\TemplateBundle": "" }
 	}
 }
