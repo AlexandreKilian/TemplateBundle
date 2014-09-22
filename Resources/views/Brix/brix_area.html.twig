@@ -1,0 +1,7 @@
+{% block brix_field %}
+{% if admin %}
+<span  medium-editor editable="editMode" options='{"placeholder": "", "buttons": ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "unorderedlist"]}' ng-model="widget.{{field}}" name="{{field}}"></span>
+{% else %}
+{{text|raw}}
+{%endif %}
+{% endblock %}

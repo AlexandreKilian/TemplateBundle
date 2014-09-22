@@ -1,0 +1,25 @@
+services:
+    brix.twig.widget:
+        class: Brix\TemplateBundle\Twig\Extension\Widget
+        arguments:
+            - '@twig'
+            - '@security.context'
+    brix.twig.brix_field:
+        class: Brix\TemplateBundle\Twig\Extension\BrixField
+        arguments:
+            - '@twig'
+            - '@security.context'
+    brix.twig.brix_area:
+        class: Brix\TemplateBundle\Twig\Extension\BrixArea
+        arguments:
+            - '@twig'
+            - '@security.context'
+    brix.twig.brix_extension:
+        class: Brix\TemplateBundle\Twig\BrixExtension
+    # brix.twig.block_node:
+    #     class: Brix\TemplateBundle\Twig\Tags\BrixBlock
+        # arguments: [ @twig.loader ]
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
