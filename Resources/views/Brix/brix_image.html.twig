@@ -1,6 +1,6 @@
 {% block brix_field %}
 {% if admin %}
-<span style="min-width:{{width}}px; min-height:{{height}}px;" ng-class="{false:'bx_drag_area'}[previewMode]" ng-click="openMediaGallery('{{field}}')" ng-file-drop="onFileSelect($files,'{{field}}')" ng-file-drag-over-class="over">
+<span style="min-width:{{width}}px; min-height:{{height}}px;" ng-class="{true:'',false:'bx_drag_area'}[previewMode]" class="bx_drag_area" ng-click="openMediaGallery('{{field}}')" ng-file-drop="onFileSelect($files,'{{field}}')" ng-file-drag-over-class="over">
   <img class="bx_image" ng-src="{{'{{'}}widget.{{field}}.url{{'}}'}}" alt="{{'{{'}}widget.{{field}}.alt{{'}}'}}" class="{{'{{'}}widget.{{field}}.classes{{'}}'}}">
 </span>
 {% else %}
