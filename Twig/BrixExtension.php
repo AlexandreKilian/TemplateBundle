@@ -48,9 +48,9 @@ class BrixExtension extends \Twig_Extension{
     {
         return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field );
     }
-    public function renderImage( $entity,$field )
+    public function renderImage( $entity,$field,$width,$height )
     {
-        return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field );
+        return $this->container->get( 'brix.twig.brix_image' )->render( $entity,$field,$width,$height );
     }
     public function renderArea( $entity,$field )
     {
