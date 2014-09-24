@@ -22,7 +22,8 @@ class BrixExtension extends \Twig_Extension{
       'end_widget' => new \Twig_Function_Method($this,'endWidget',array('is_safe'=>array('html'))),
       'bx_field' => new \Twig_Function_Method($this,'renderField',array('is_safe'=>array('html'))),
       'bx_image' => new \Twig_Function_Method($this,'renderImage',array('is_safe'=>array('html'))),
-      'bx_area' => new \Twig_Function_Method($this,'renderArea',array('is_safe'=>array('html')))
+      'bx_area' => new \Twig_Function_Method($this,'renderArea',array('is_safe'=>array('html'))),
+      'bx_navigation' => new \Twig_Function_Method($this,'renderNavigation',array('is_safe'=>array('html')))
     );
     // return array(
     //     new \Twig_SimpleFunction('bx_field',null,array('node_class'=>'Brix\TemplateBundle\Twig\Node\BrixField', 'is_safe'=> array('html')))
@@ -55,5 +56,9 @@ class BrixExtension extends \Twig_Extension{
     public function renderArea( $entity,$field )
     {
         return $this->container->get( 'brix.twig.brix_area' )->render( $entity,$field );
+    }
+    public function renderNavigation( $navigation )
+    {
+        return $this->container->get( 'brix.twig.brix_navigation' )->render( $navigation );
     }
 }

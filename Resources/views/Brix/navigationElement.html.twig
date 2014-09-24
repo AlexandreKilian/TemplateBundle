@@ -1,0 +1,10 @@
+<li>
+    <a href="{% if element.url %}{{element.url}}{% elseif element.page %}{{path('brix_page',{url:element.page.url})}}{% endif %}">{{element.displayname}}</a>
+    {% if element.children %}
+    <ul>
+        {% for subelement in element.children %}
+        {% include  'BrixCoreBundle:Brix:navigationElement.html.twig' with {element:subelement} %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</li>

@@ -1,0 +1,13 @@
+{% block brix_field %}
+{% if admin %}
+<ul>
+    <li><a href="#">[NAVIGATION]</a></li>
+</ul>
+{% else %}
+<ul{% if navigation.classes %} class="{{navigation.classes}}"{% endif %}{% if navigation.domid %} class="{{navigation.domid}}"{% endif %}>
+{% for element in navigation.elements %}
+{% include  'BrixTemplateBundle:Brix:navigationElement.html.twig' with {element:element} %}
+{% endfor %}
+</ul>
+{%endif %}
+{% endblock %}

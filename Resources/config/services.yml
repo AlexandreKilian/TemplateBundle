@@ -19,6 +19,11 @@ services:
         arguments:
             - '@twig'
             - '@security.context'
+    brix.twig.brix_navigation:
+        class: Brix\TemplateBundle\Twig\Extension\BrixNavigation
+        arguments:
+            - '@twig'
+            - '@security.context'
     brix.twig.brix_extension:
         class: Brix\TemplateBundle\Twig\BrixExtension
     # brix.twig.block_node:
