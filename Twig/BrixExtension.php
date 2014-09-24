@@ -18,8 +18,8 @@ class BrixExtension extends \Twig_Extension{
 
   public function getFunctions(){
     return array(
-      'start_widget' => new \Twig_Function_Method($this,'startWidget',array('is_safe'=>array('html'))),
-      'end_widget' => new \Twig_Function_Method($this,'endWidget',array('is_safe'=>array('html'))),
+      'bx_start' => new \Twig_Function_Method($this,'startWidget',array('is_safe'=>array('html'))),
+      'bx_end' => new \Twig_Function_Method($this,'endWidget',array('is_safe'=>array('html'))),
       'bx_field' => new \Twig_Function_Method($this,'renderField',array('is_safe'=>array('html'))),
       'bx_image' => new \Twig_Function_Method($this,'renderImage',array('is_safe'=>array('html'))),
       'bx_area' => new \Twig_Function_Method($this,'renderArea',array('is_safe'=>array('html'))),
@@ -36,13 +36,13 @@ class BrixExtension extends \Twig_Extension{
         return 'brix';
     }
 
-    public function startWidget( $widget )
+    public function startWidget( $page )
     {
-        return $this->container->get( 'brix.twig.widget' )->start( $widget );
+        return $this->container->get( 'brix.twig.widget' )->start( $page );
     }
-    public function endWidget( $widget )
+    public function endWidget( $page )
     {
-        return $this->container->get( 'brix.twig.widget' )->end( $widget );
+        return $this->container->get( 'brix.twig.widget' )->end( $page );
     }
 
     public function renderField( $entity,$field )
