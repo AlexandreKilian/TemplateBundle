@@ -1,4 +1,4 @@
 {% block brix_field %}{% spaceless %}
-ng-app="angularApp" ng-controller="pageCtrl" ng-init="pageid = '{{page.id}}'" ng-class="{brixadmin_hidden: hideAdminBar}"
+ng-app="angularApp" ng-controller="pageCtrl" ng-init="pageid = '{{page.id}}'" ng-class="{true:'brixadmin_hidden',false:'brixadminbar_visible'}[hideAdminBar]"
 {% endspaceless %}
 {% endblock %}
