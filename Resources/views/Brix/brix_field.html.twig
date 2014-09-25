@@ -2,6 +2,6 @@
 {% if admin %}
 <span contenteditable="{{'{{'}}editMode{{'}}'}}" ng-model="widget.{{field}}" name="{{field}}"></span>
 {% else %}
-{{text}}
+{{text|raw}}
 {%endif %}
 {% endblock %}
