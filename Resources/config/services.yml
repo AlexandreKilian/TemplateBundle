@@ -4,26 +4,31 @@ services:
         arguments:
             - '@twig'
             - '@security.context'
+            - '@session'
     brix.twig.brix_field:
         class: Brix\TemplateBundle\Twig\Extension\BrixField
         arguments:
             - '@twig'
             - '@security.context'
+            - '@session'
     brix.twig.brix_area:
         class: Brix\TemplateBundle\Twig\Extension\BrixArea
         arguments:
             - '@twig'
             - '@security.context'
+            - '@session'
     brix.twig.brix_image:
         class: Brix\TemplateBundle\Twig\Extension\BrixImage
         arguments:
             - '@twig'
             - '@security.context'
+            - '@session'
     brix.twig.brix_navigation:
         class: Brix\TemplateBundle\Twig\Extension\BrixNavigation
         arguments:
             - '@twig'
             - '@security.context'
+            - '@session'
     brix.twig.brix_extension:
         class: Brix\TemplateBundle\Twig\BrixExtension
     # brix.twig.block_node:
