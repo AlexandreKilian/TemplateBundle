@@ -23,7 +23,7 @@ class BrixImage{
         return ($this->security->isGranted("ROLE_ADMIN") && $this->session->get('adminmode',false));
     }
 
-  public function render($entity,$field,$width,$height){
+  public function render($entity,$field,$width,$height,$display){
     $this->template = $this->environment->loadTemplate( "BrixTemplateBundle:Brix:brix_image.html.twig" );
     $getter = "get".ucfirst($field);
     $admin = $this->isAdminMode();
@@ -35,6 +35,7 @@ class BrixImage{
       'admin' => $admin,
       'width'=> $width,
       'height'=>$height,
+      'display' => $display
     ));
 
   }

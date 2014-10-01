@@ -1,7 +1,9 @@
 {% block brix_field %}
-{% if admin %}
+{% if admin and wrap %}
 <span contenteditable="{{'{{'}}editMode{{'}}'}}" ng-model="widget.{{field}}" name="{{field}}"></span>
-{% else %}
+{% elseif admin %}
+{{'{{'}}widget.{{field}}{{'}}'}}
+{% elseif wrap %}
 {{text|raw}}
 {%endif %}
 {% endblock %}

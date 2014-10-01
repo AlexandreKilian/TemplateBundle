@@ -45,13 +45,13 @@ class BrixExtension extends \Twig_Extension{
         return $this->container->get( 'brix.twig.widget' )->end( $page );
     }
 
-    public function renderField( $entity,$field )
+    public function renderField( $entity,$field,$wrap = true )
     {
-        return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field );
+        return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field,$wrap );
     }
-    public function renderImage( $entity,$field,$width,$height )
+    public function renderImage( $entity,$field,$width=0,$height=0,$display=true )
     {
-        return $this->container->get( 'brix.twig.brix_image' )->render( $entity,$field,$width,$height );
+        return $this->container->get( 'brix.twig.brix_image' )->render( $entity,$field,$width,$height,$display );
     }
     public function renderArea( $entity,$field )
     {
