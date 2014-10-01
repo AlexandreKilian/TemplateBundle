@@ -3,7 +3,7 @@
 <span contenteditable="{{'{{'}}editMode{{'}}'}}" ng-model="widget.{{field}}" name="{{field}}"></span>
 {% elseif admin %}
 {{'{{'}}widget.{{field}}{{'}}'}}
-{% elseif wrap %}
+{% else %}
 {{text|raw}}
 {%endif %}
 {% endblock %}

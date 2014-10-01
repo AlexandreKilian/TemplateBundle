@@ -23,11 +23,11 @@ class BrixField{
         return ($this->security->isGranted("ROLE_ADMIN") && $this->session->get('adminmode',false));
     }
 
-  public function render($entity,$field,$wrap){
+  public function render($entity,$field,$wrap,$content){
     $this->template = $this->environment->loadTemplate( "BrixTemplateBundle:Brix:brix_field.html.twig" );
     $getter = "get".ucfirst($field);
     $admin = $this->isAdminMode();
-    $text = $admin?'':$wrap?$entity->$getter():'';
+    $text = $admin?'':$content?$content:$entity->$getter();
     return $this->template->renderBlock( 'brix_field', array(
       'entity'=>$entity,
       'field'=>$field,

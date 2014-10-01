@@ -8,7 +8,7 @@ use Symfony\Bridge\Twig\Form\TwigRendererInterface;
 class BrixExtension extends \Twig_Extension{
 
 
-  protected $container;
+    protected $container;
 
     public function __construct( $container )
     {
@@ -16,22 +16,22 @@ class BrixExtension extends \Twig_Extension{
     }
 
 
-  public function getFunctions(){
-    return array(
-      'bx_start' => new \Twig_Function_Method($this,'startWidget',array('is_safe'=>array('html'))),
-      'bx_end' => new \Twig_Function_Method($this,'endWidget',array('is_safe'=>array('html'))),
-      'bx_field' => new \Twig_Function_Method($this,'renderField',array('is_safe'=>array('html'))),
-      'bx_image' => new \Twig_Function_Method($this,'renderImage',array('is_safe'=>array('html'))),
-      'bx_area' => new \Twig_Function_Method($this,'renderArea',array('is_safe'=>array('html'))),
-      'bx_navigation' => new \Twig_Function_Method($this,'renderNavigation',array('is_safe'=>array('html')))
-    );
-    // return array(
-    //     new \Twig_SimpleFunction('bx_field',null,array('node_class'=>'Brix\TemplateBundle\Twig\Node\BrixField', 'is_safe'=> array('html')))
-    // );
+    public function getFunctions(){
+        return array(
+            'bx_start' => new \Twig_Function_Method($this,'startWidget',array('is_safe'=>array('html'))),
+            'bx_end' => new \Twig_Function_Method($this,'endWidget',array('is_safe'=>array('html'))),
+            'bx_field' => new \Twig_Function_Method($this,'renderField',array('is_safe'=>array('html'))),
+            'bx_image' => new \Twig_Function_Method($this,'renderImage',array('is_safe'=>array('html'))),
+            'bx_area' => new \Twig_Function_Method($this,'renderArea',array('is_safe'=>array('html'))),
+            'bx_navigation' => new \Twig_Function_Method($this,'renderNavigation',array('is_safe'=>array('html')))
+        );
+        // return array(
+        //     new \Twig_SimpleFunction('bx_field',null,array('node_class'=>'Brix\TemplateBundle\Twig\Node\BrixField', 'is_safe'=> array('html')))
+        // );
 
-  }
+    }
 
-      public function getName()
+    public function getName()
     {
         return 'brix';
     }
@@ -45,9 +45,9 @@ class BrixExtension extends \Twig_Extension{
         return $this->container->get( 'brix.twig.widget' )->end( $page );
     }
 
-    public function renderField( $entity,$field,$wrap = true )
+    public function renderField( $entity, $field, $wrap = true, $content = null )
     {
-        return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field,$wrap );
+        return $this->container->get( 'brix.twig.brix_field' )->render( $entity,$field,$wrap,$content );
     }
     public function renderImage( $entity,$field,$width=0,$height=0,$display=true )
     {
