@@ -27,7 +27,7 @@ class BrixField{
     $this->template = $this->environment->loadTemplate( "BrixTemplateBundle:Brix:brix_field.html.twig" );
     $getter = "get".ucfirst($field);
     $admin = $this->isAdminMode();
-    $text = $admin?'':$content?$content:$entity->$getter();
+    $text = $admin?'':($content?$content:$entity->$getter());
     return $this->template->renderBlock( 'brix_field', array(
       'entity'=>$entity,
       'field'=>$field,

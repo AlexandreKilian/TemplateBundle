@@ -6,6 +6,6 @@
 {% elseif admin %}
 <button class="btn btn_success bx_drag_area" ng-click="openMediaGallery('{{field}}')">Select Image</button>
 {% elseif display %}
-<img src="{{image.webPath}}">
+<img src="{{image.webPath}}" ng-show="editMode">
 {%endif %}
 {% endblock %}

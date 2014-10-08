@@ -1,4 +1,5 @@
 {% block brix_field %}
+{% spaceless %}
 {% if admin and wrap %}
 <span contenteditable="{{'{{'}}editMode{{'}}'}}" ng-model="widget.{{field}}" name="{{field}}"></span>
 {% elseif admin %}
@@ -7,3 +8,4 @@
 {{text|raw}}
 {%endif %}
 {% endblock %}
+{% endspaceless %}
