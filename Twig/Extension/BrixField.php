@@ -29,7 +29,7 @@ class BrixField{
     $agetter = "get".ucfirst($accessor);
 
     $admin = $this->isAdminMode();
-    $text = $admin?'':($entity->$agetter()?$entity->$agetter():$entity->$getter());
+    $text = $admin?'':($accessor!=null?$entity->$agetter():$entity->$getter());
     return $this->template->renderBlock( 'brix_field', array(
       'entity'=>$entity,
       'field'=>$field,
