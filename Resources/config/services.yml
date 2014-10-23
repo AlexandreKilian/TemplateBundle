@@ -11,6 +11,12 @@ services:
             - '@twig'
             - '@security.context'
             - '@session'
+    brix.twig.brix_model:
+        class: Brix\TemplateBundle\Twig\Extension\BrixModel
+        arguments:
+            - '@twig'
+            - '@security.context'
+            - '@session'
     brix.twig.brix_area:
         class: Brix\TemplateBundle\Twig\Extension\BrixArea
         arguments:
