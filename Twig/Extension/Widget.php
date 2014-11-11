@@ -19,9 +19,19 @@ class Widget{
     $this->session = $session;
   }
 
-    public function isAdminMode(){
-        return ($this->security->isGranted("ROLE_ADMIN") && $this->session->get('adminmode',false));
+    private function isAdmin(){
+        return  $this->security->isGranted('ROLE_ADMIN');
     }
+
+
+    private function isAdminMode(){
+
+
+        $adminsession = $this->session->get('adminmode',false);
+
+        return ($this->isAdmin() && $adminsession);
+    }
+
 
   public function start($page){
     $this->template = $this->environment->loadTemplate( "BrixTemplateBundle:Brix:start_widget.html.twig" );
